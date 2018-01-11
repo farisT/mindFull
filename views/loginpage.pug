@@ -1,0 +1,43 @@
+html
+	head
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="customMind.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(charset="utf-8")
+			
+	body(id="indexPage")
+
+		include nav
+		br
+		br
+
+		h1 Be Mindfull
+
+		p The Login Page
+			div(class="container")
+				div(class="row")
+					div(class="col-lg-10 col-lg-offset-1 backgroundLogin")
+						img#signinpic(src="/images/login/loginpic.png")
+						div(class="theForm")
+						h4(class="titleFont") Login
+						if(space)
+							br
+							br
+						if(errorLoginEmail)
+							h5(class="errorText") #{errorLoginEmail}
+							h5(class="errorText") Not signed up yet? Click #[a(href='subscription') here] to sign up
+						if(errorLoginPassword)
+							br
+							h5(class="errorText") #{errorLoginPassword}
+
+						form(class="input-group input-group-sm" method="POST" action="/loginRoute")
+							input(class="form-control" id="loginEmail" name="email" type="text" placeholder="Email*" required)
+							input(class="form-control" id="loginPassword" name="password" type="password" placeholder="Password*" required)
+							input(class="submitelement" id="submitLogin" type="submit" value="Login")
+									
+
+
+	
+	script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
+

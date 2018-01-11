@@ -1,0 +1,58 @@
+html
+	head
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+		link(rel="stylesheet" type="text/css" href="customMind.css")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		meta(charset="utf-8")
+			
+	body(id="indexPage")
+
+		include nav
+		br
+		br
+
+		h1 Be Mindfull
+
+		p How do you feel like #{first_name}?
+		div(class="container")
+			div(class="col-md-1 col-md-offset-4")
+				form(class="input-group input-group-sm" method="POST" action="/feelForm")
+					div(class="row")
+						h3 Mood
+						input(class="form-control" type="range" name="mood" id="moodInputId" value="5" min="1" max="10" oninput="moodOutputId.value = moodInputId.value")
+						output(name="moodOutputName" id="moodOutputId")
+					div(class="row")
+						h3 Sleep
+						input(class="form-control" type="range" name="sleep" id="sleepInputId" value="5" min="1" max="10" oninput="sleepOutputId.value = sleepInputId.value")
+						output(name="sleepOutputName" id="sleepOutputId")
+					div(class="row")
+						h3 Diet
+						input(class="form-control" type="range" name="diet" id="dietInputId" value="5" min="1" max="10" oninput="dietOutputId.value = dietInputId.value")
+						output(name="dietOutputName" id="dietOutputId")
+					div(class="row")
+						select(name ="exercise" class="form-control" required)
+							option(value="" disabled selected) Exercise*
+							option(value="Yes") Yes
+							option(value="No") No
+					div(class="row")
+						br
+						input(class="submitelement" id="submitForm" type="submit" value="Submit")
+
+
+
+	
+	script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+	script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
+
+	script.
+
+		document.moodInputId.oninput = function(){
+			document.moodOutputId.value = document.moodInputId.value;
+		}
+		document.sleepInputId.oninput = function(){
+			document.sleepOutputId.value = document.sleepInputId.value;
+		}
+		document.dietInputId.oninput = function(){
+			document.dietOutputId.value = document.dietInputId.value;
+		}
+
