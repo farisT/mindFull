@@ -42,7 +42,7 @@ var bcrypt = require('bcrypt')
 					if (result == true) { // if password is correct > go to profile page
 						req.session.user = userinfo
 						if(req.session.user.first_name){
-							res.redirect("profile", 301)
+							res.redirect("score", 301)
 						}
 					} 
 					else {

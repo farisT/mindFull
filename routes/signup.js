@@ -11,7 +11,6 @@ module.exports = (app,db,bcrypt) => {
 	})
 
 app.post('/signUp', (req, res) => {
-        console.log("req.body.subscription in sign up", req.body.subscription)
         var email = req.body.email
         db.users.findAll({
                 where: {
@@ -44,7 +43,7 @@ app.post('/signUp', (req, res) => {
                                     date_of_birth: createdUser.date_of_birth,
                                 }
                                 req.session.user = userinfo
-                                res.redirect("/profile", 301)
+                                res.redirect("/score", 301)
                         })
                     })
                 }

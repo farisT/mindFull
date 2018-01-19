@@ -38,7 +38,7 @@ require("./routes/about.js")(app)
 require("./routes/howdoyoufeel.js")(app,db)
 require("./routes/score.js")(app,db)
 require("./routes/recommendation.js")(app,db)
-
+require("./routes/search.js")(app, db)
 
 
 db.sequelize.sync({ 

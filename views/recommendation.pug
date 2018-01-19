@@ -10,11 +10,33 @@ html
 		include nav
 		br
 		br
-		div(class="row")
+		div#recommendations(class="row")
 				h1(id="centreTitleRecommendation") Recommendations
 
 
-		div(class="row" id="bannerRecommendation")
+
+		div(class="row" id="bannerRecommendation1")
+			div(id="breathContainer" class="col-lg-4 col-lg-offset-4")
+
+				h3 Breathing Exercise
+				p Controlling your breathing rythmns can help with focusing and stress. Try and focus on the breathing pattern below.
+
+				img(id="breathingGif" src="/images/recommendations/breathgif.gif")
+
+		div(class="row" id="bannerRecommendation2")
+			div(id="videoContainer" class="col-lg-4 col-lg-offset-4")
+				h3 Diet and Mood
+				p Dr Berg shows in this video the importance of food connection to mood.
+				iframe(width='400', height='360', src='https://www.youtube.com/embed/9MpeSudXyRs', frameborder='0', allow='autoplay; encrypted-media', allowfullscreen='')
+				
+		div(class="row" id="bannerRecommendation3")
+			div(id="videoContainer" class="col-lg-4 col-lg-offset-4")
+				h3 Importance of exercise
+				p A quick video on why exercise helps and how to start with it.
+				iframe(width='400', height='360', src='https://www.youtube.com/embed/mJW7dYXPZ2o', frameborder='0', allow='autoplay; encrypted-media', allowfullscreen='')
+
+		br
+		br
 
 
 	

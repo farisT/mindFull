@@ -49,22 +49,22 @@ module.exports = (app, db) => {
                        averagescore.sleep += (allFeels[i].dataValues.sleep * (1/allFeels.length))
                     }
 
-                  for (var i=0; i < allFeels.length ; ++i){  
+                  for (var i=0; i < feelsUser.length ; ++i){  
                        // console.log(allFeels.length + allFeels[i].dataValues.mood)
-                    if(allFeels[i].dataValues.exercise == "Yes"){
+                    if(feelsUser[i].dataValues.exercise == "Yes"){
                        exercise.yes += (1)
                     }
-                    if((allFeels[i].dataValues.exercise == "No")){
+                    if((feelsUser[i].dataValues.exercise == "No")){
                         exercise.no += (1)
                     }
 
                     }
                     console.log(exercise)
-                
+                    
 
                     console.log(score)
                     // var messages = messages(score.mood, ... )
-                    function messages(moodScore, dietScore, sleepScore) {
+                    function messages(moodScore, dietScore, sleepScore,exerciseScore,noExerciseScore) {
                         var messages = {}
                         if(moodScore < 5.5){ messages.mood = " In a bad mood? have a look at the recommendations page for things you can do to help that "}
                         else {messages.mood = " Only good vibes... keep it going!   "}
@@ -72,10 +72,11 @@ module.exports = (app, db) => {
                         else {messages.diet = "The quickest way to maintain balance in the body is through the stomach. For more fresh ideas check the recommendations! "}
                         if(sleepScore < 5.5) {messages.sleep = "Sleep is so vital for bettering your mood and maintaining a balance body, try and get more zzzs in!"}
                         else {messages.sleep = "Sleep is the first step to feeling better, try balancing everything together to further better your state of mind! "}
-
+                        if(exerciseScore < noExerciseScore) {messages.exercise = "We see that you have been skipping exercising. A healthy body is a healthy mind so make sure to go for some exercise. If you have no ideas on what to do, check the recommendations page!"}
+                        else {messages.exercise = "Good work in exercising. Exercising can help many factors of your mood. If you are looking for different type of exercise routines or simply to see the benefits of exercise check the recommendations page!"}
                         return messages
                     }
-                    var messages = messages(score.mood,score.diet,score.sleep)
+                    var messages = messages(score.mood,score.diet,score.sleep,exercise.yes,exercise.no)
 
                     res.render("score", {
                         id: req.session.user.id,
@@ -88,6 +89,7 @@ module.exports = (app, db) => {
                         textMood: messages.mood,
                         textDiet: messages.diet,
                         textSleep: messages.sleep,
+                        textExercise: messages.exercise,
                         average: averagescore,
                         exercise:exercise,
 

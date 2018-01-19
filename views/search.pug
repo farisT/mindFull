@@ -5,9 +5,24 @@ html
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		meta(charset="utf-8")
 			
-	body(id="aboutPage")
+	body(id="searchPage")
 
 		include nav
+		br
+		br
+		br
+		br
+		div(class="row")
+			div(class="col-sm-5 col-sm-offset-1")
+				form(method="POST" action="search")
+					input(type="text" name = "user" placeholder="search users")
+					input(type="submit" value="submit")
+
+		div(class="row")
+			div(class="col-sm-5 col-sm-offset-1")
+				p #{text}
+				a(href="/found") #{foundUsers} 
+
 
 
 	

@@ -10,10 +10,27 @@ html
 		include nav
 		br
 		br
+		br
+		br
+		div(class="container")
+			div(class="row")
+				div(class="col-sm-14")
+					div(class="row greyspace")
+						div(class="col-sm-2 col-sm-offset-0 ")
+							img#Profilepic(src="./images/profile/profileIcon.png")
+						div(class="col-sm-3")
+							h3.profiletext #{first_name} #{last_name}
+							p.profiletext #{email} #{date_of_birth}
+						br
+						br
+						div(class="col-sm-3")
+							button.button
+								a(href="/howdoyoufeel") How do you feel?
+						div(class="col-sm-3")
+							button.button
+								a(href="/score") Check your score!
 
-		h1 Be Mindfull
 
-		p The profile page - Hello #{first_name}
 
 
 
